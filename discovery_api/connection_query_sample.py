@@ -25,11 +25,11 @@ def fetch_api_data(api_url, access_token, query, variables=None):
 
 api_url = "https://metadata.cloud.getdbt.com/graphql"
 access_token = "dbts_foo" # Replace dbt Cloud service token
-job_id = 240681 # Replace dbt Cloud job_id
+jobId = 240681 # Replace dbt Cloud jobId
 
 query = """
-query Models($job_id: Int!) {
-  models(jobId: $job_id) {
+query Models($jobId: Int!) {
+  models(jobId: $jobId) {
     name
     tests {
       columnName
@@ -40,7 +40,7 @@ query Models($job_id: Int!) {
 """
 
 variables = {
-    "jobid": job_id
+    "jobId": jobId
 }
 
 data = fetch_api_data(api_url, access_token, query, variables)
